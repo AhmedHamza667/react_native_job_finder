@@ -13,13 +13,10 @@ inquirer.prompt([
       message: 'Enter the URL to generate a QR code:'
     }
 ]).then((answers) => {
-    fs.writeFile('output.txt', answers.url, () => {});
-    console.log(`url entered: ${answers.url}`);
-    // qr.image('generated qr', [ec_level | options])
-
-    var qr_svg = qr.image(answers.url, { type: 'png' });
+    const url = answers.url;
+    var qr_svg = qr.image(url);
     qr_svg.pipe(fs.createWriteStream('generatedQR.png'));
-
+    fs.writeFile('output.txt', url, () => {});
 }).catch((errors) => {
     console.error('Error:', errors);
 });
