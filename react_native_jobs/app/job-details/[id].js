@@ -12,4 +12,6 @@ function JobDetils() {
   )
 }
 
+// new JobDetils
+
 export default JobDetils
