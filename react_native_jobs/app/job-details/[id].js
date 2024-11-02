@@ -7,13 +7,15 @@ import { COLORS, icons, SIZES } from '../../constants'
 import { useFetch } from '../../hook/useFetch'
 
 function JobDetils() {
-    const { params } = useSearchParams();
+    const params = useSearchParams();
     const router = useRouter();
     const [ data, isLoading, error, refetch ] = useFetch('job-details', {
         job_id: params.id
     });
   return (
-    <Text>JobDetils</Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+        <Stack.Screen></Stack.Screen>
+    </SafeAreaView>
   )
 }
 
